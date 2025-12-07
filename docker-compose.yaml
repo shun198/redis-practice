@@ -12,7 +12,7 @@ services:
     container_name: redis-commander
     ports:
       - "8081:8081" # UIアクセス用ポート
-    # 表示名:接続先ホスト:ポート
+    # 任意の表示名:接続先ホスト:ポート
     environment:
       - REDIS_HOSTS=myredis:redis-server:6379
     depends_on:

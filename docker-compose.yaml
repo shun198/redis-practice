@@ -1,9 +1,22 @@
-redis:
-  image: redis:latest
-  ports:
-    - "6379:6379"
-  volumes:
-    - redis_data:/data
+services:
+  redis:
+    image: redis:8.4.0
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    ports:
+      - "8081:8081" # UIアクセス用ポート
+    # 表示名:接続先ホスト:ポート
+    environment:
+      - REDIS_HOSTS=myredis:redis-server:6379
+    depends_on:
+      - redis
 
 volumes:
   redis_data:

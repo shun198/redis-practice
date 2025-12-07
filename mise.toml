@@ -13,3 +13,6 @@ run = "docker compose down"
 
 [tasks.script]
 run = "uv run scripts/insert_sample_data.py"
+
+[tasks.format]
+run = "uv run ruff format"

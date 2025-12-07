@@ -1,2 +1,15 @@
+[tools]
+python = "3.14.0"
+uv = "0.9.16"
+
+[tasks.sync]
+run = "uv sync"
+
 [tasks.up]
 run = "docker compose up"
+
+[tasks.down]
+run = "docker compose down"
+
+[tasks.script]
+run = "uv run scripts/insert_sample_data.py"
